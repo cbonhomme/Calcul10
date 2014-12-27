@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="Calcul10" default="build" basedir="../.">
+    <property environment="env"/>
+    <property name="phpunitdir" value="C:\Program Files (x86)\Zend\Zend Studio 10.6.2\plugins\com.zend.php.phpunit_11.0.2.v20140926-0202\resources\vendor\phpunit\phpunit"/>
 	<property name="source" value="src" />
 
 	<target name="build" description="Tâche principale d'intégration continue"
@@ -30,12 +32,13 @@
 		<phingcall target="pdepend" />
 	</target>
 	
-<target name="phpunit">
-  <exec executable="cmd">
-    <arg value="/c"/>
-    <arg value="phpunit.bat"/>
-  </exec>
-</target>	
+	<target name="phpunit">
+	 <exec executable="phpunit" failonerror="true" description="Run unit tests with PHPUnit">
+      <arg value="--configuration" />
+      <arg path="${basedir}/Xml/phpunit.xml" />
+      <arg line="--verbose --stderr" />  
+     </exec>
+	</target>
 
 	<target name="phpmd">
     	<phpmd file="${basedir}/${source}">
