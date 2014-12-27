@@ -1,0 +1,14 @@
+html,body 
+{
+height: 100%;
+width: 100%;
+overflow: auto;
+}
+
+body 
+{
+background-color: #fff;
+color: #000;
+font-family: Verdana, Arial, Helvetica, sans-serif;
+font-size: 0.75em;
+}

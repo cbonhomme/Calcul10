@@ -1,0 +1,72 @@
+.form
+{
+margin: 2em auto;
+width: 25em;
+text-align: left;
+}
+
+.form fieldset
+{
+border: 3px solid #738dc0;
+border-radius: 15px;
+padding: 0.5em;
+}
+
+.form legend
+{
+background: #d0d6e9;
+color: #405c90;
+font-weight: bold;
+margin-left: 0.7em;
+padding: 0 0.7em;
+border: 2px solid #738dc0;
+border-radius: 15px;
+}
+
+.form p
+{
+width: 20em;
+padding: 0.5em;
+text-align: center;
+}
+
+.form label
+{
+display: inline-block;
+width: 5em;
+padding-right: 0.7em;
+text-align: right;
+font-weight: bold;
+}
+
+#calcul p
+{
+margin: 0 auto;
+}
+
+#calcul label
+{
+display: none;
+}
+
+#resultat
+{
+margin: 1em auto;
+width: 20em;
+text-align: center;
+font-size: 1.5em;
+font-weight: bold;
+}
+
+#res
+{
+background-color: #00f;
+color: #fff;
+}
+
+#new_res
+{
+font-size: 3em;
+background-color: #ff0;
+color: #000
+}
