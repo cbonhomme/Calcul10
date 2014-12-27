@@ -6,17 +6,17 @@
 		depends="clean,qa" />
 
 	<target name="clean" description="Vide les répertoires d'artefacts">
-		<delete dir="${project.basedir}/build/api" />
-		<delete dir="${project.basedir}/build/code-browser" />
-		<delete dir="${project.basedir}/build/coverage" />
-		<delete dir="${project.basedir}/build/logs" />
-		<delete dir="${project.basedir}/build/pdepend" />
+		<delete dir="${basedir}/build/api" />
+		<delete dir="${basedir}/build/code-browser" />
+		<delete dir="${basedir}/build/coverage" />
+		<delete dir="${basedir}/build/logs" />
+		<delete dir="${basedir}/build/pdepend" />
 
-		<mkdir dir="${project.basedir}/build/api" />
-		<mkdir dir="${project.basedir}/build/code-browser" />
-		<mkdir dir="${project.basedir}/build/coverage" />
-		<mkdir dir="${project.basedir}/build/logs" />
-		<mkdir dir="${project.basedir}/build/pdepend" />
+		<mkdir dir="${basedir}/build/api" />
+		<mkdir dir="${basedir}/build/code-browser" />
+		<mkdir dir="${basedir}/build/coverage" />
+		<mkdir dir="${basedir}/build/logs" />
+		<mkdir dir="${basedir}/build/pdepend" />
 	</target>
 
 	<target name="qa" description="Lance les outils d'analyse">
@@ -31,41 +31,41 @@
 	</target>
 
 	<target name="phpunit">
-		<exec logoutput="true" dir="${project.basedir}/${source}/Xml"
+		<exec logoutput="true" dir="${basedir}/${source}/Xml"
 			command="phpunit" escape="false" />
 	</target>
 	
 	<target name="phpmd">
-    	<phpmd file="${project.basedir}/${source}">
-        	<formatter type="xml" outfile="${project.basedir}/build/phpmd.xml" />
+    	<phpmd file="${basedir}/${source}">
+        	<formatter type="xml" outfile="${basedir}/build/phpmd.xml" />
     	</phpmd>
 	</target>
 	
 	<target name="phpcpd">
-    	<phpcpd file="${project.basedir}/${source}">
-        	<formatter type="pmd" outfile="${project.basedir}/build/logs/pmd-cpd.xml" />
+    	<phpcpd file="${basedir}/${source}">
+        	<formatter type="pmd" outfile="${basedir}/build/logs/pmd-cpd.xml" />
     	</phpcpd>
 	</target>
 	
 	<target name="phploc">
-    	<exec logoutput="true" dir="${project.basedir}" command="phploc --log-csv '${project.basedir}/build/logs/phploc.csv' '${project.basedir}/${source}'" escape="false" />
+    	<exec logoutput="true" dir="${basedir}" command="phploc --log-csv '${basedir}/build/logs/phploc.csv' '${basedir}/${source}'" escape="false" />
 	</target>
 	
 	<target name="phpcs">
     	<phpcodesniffer standard="MyRules">
-        	<fileset dir="${project.basedir}/${source}">
+        	<fileset dir="${basedir}/${source}">
             	<include name="**/*.php"/>
         	</fileset>
-        	<formatter type="checkstyle" outfile="${project.basedir}/build/logs/checkstyle.xml"/>
+        	<formatter type="checkstyle" outfile="${basedir}/build/logs/checkstyle.xml"/>
     	</phpcodesniffer>
 	</target>
 	
 	<target name="phpdoc">
     	<phpdoc title="API Documentation"
-            	destdir="${project.basedir}/build/api"
+            	destdir="${basedir}/build/api"
             	sourcecode="false"
             	output="HTML:Smarty:PHP">
-        	<fileset dir="${project.basedir}/${source}">
+        	<fileset dir="${basedir}/${source}">
             	<include name="**/*.php"/>
         	</fileset>
         	<projdocfileset dir=".">
@@ -77,14 +77,14 @@
 	</target>
 	
 	<target name="phpcb">
-    	<exec logoutput="true" command="phpcb --log '${project.basedir}/build/logs' --source '${project.basedir}/${source}' --output '${project.basedir}/build/code-browser'" escape="false" />
+    	<exec logoutput="true" command="phpcb --log '${basedir}/build/logs' --source '${basedir}/${source}' --output '${basedir}/build/code-browser'" escape="false" />
 	</target>
 			
 	<target name="pdepend">
-        <phpdepend file="${project.basedir}/${source}">
-            <logger type="jdepend-xml" outfile="${project.basedir}/build/logs/jdepend.xml" />
-            <logger type="jdepend-chart" outfile="${project.basedir}/build/pdepend/dependencies.svg" />
-            <logger type="overview-pyramid" outfile="${project.basedir}/build/pdepend/overview-pyramid.svg" />
+        <phpdepend file="${basedir}/${source}">
+            <logger type="jdepend-xml" outfile="${basedir}/build/logs/jdepend.xml" />
+            <logger type="jdepend-chart" outfile="${basedir}/build/pdepend/dependencies.svg" />
+            <logger type="overview-pyramid" outfile="${basedir}/build/pdepend/overview-pyramid.svg" />
         </phpdepend>
 	</target>
 		
