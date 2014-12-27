@@ -9,8 +9,10 @@
 // Récupération de TestCase.php
 require_once ('PHPUnit/Framework/TestCase.php');
 
+define('JENKINS', 'C:/Program Files (x86)/Jenkins/jobs/Calculatrice/workspace/');
+
 // Récupération de la class CCalcul
-require_once '../Class/CCalcul.class.php';
+require_once JENKINS .'/Class/CCalcul.class.php';
 
 /**
  * class PHPUnit Test Case pour tester la class CCalcul
