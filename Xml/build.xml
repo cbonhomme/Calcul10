@@ -3,7 +3,7 @@
 	<property name="source" value="src" />
 
 	<target name="build" description="Tâche principale d'intégration continue"
-		depends="clean,qa" />
+		depends="clean,phpunit" />
 
 	<target name="clean" description="Vide les répertoires d'artefacts">
 		<delete dir="${basedir}/build/api" />
