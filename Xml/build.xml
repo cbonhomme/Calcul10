@@ -34,8 +34,8 @@
 	
 	<target name="phpunit">
 	 <exec executable="${phpunitdir}/phpunit.bat" failonerror="true" description="Run unit tests with PHPUnit">
-      <arg value="--configuration" />
       <arg path="${basedir}/Xml/phpunit.xml" />
+      <arg line="--verbose --stderr" />  
      </exec>
 	</target>
 
