@@ -29,15 +29,14 @@
 		<phingcall target="phpcb" />
 		<phingcall target="pdepend" />
 	</target>
-
-	<target name="phpunit">
-	 <exec dir="${basedir}/Xml" executable="phpunit" failonerror="true" description="Run unit tests with PHPUnit">
-      <arg value="--configuration" />
-      <arg path="${basedir}/Xml/phpunit.xml" />
-      <arg line="--verbose --stderr" />  
-     </exec>
-	</target>
 	
+<target name="phpunit">
+  <exec executable="cmd">
+    <arg value="/c"/>
+    <arg value="phpunit.bat"/>
+  </exec>
+</target>	
+
 	<target name="phpmd">
     	<phpmd file="${basedir}/${source}">
         	<formatter type="xml" outfile="${basedir}/build/phpmd.xml" />
