@@ -7,7 +7,7 @@
 
   <testsuites>
     <testsuite name="Calculator">
-      <directory>../Tests</directory>
+      <directory>Calcul10/Tests</directory>
     </testsuite>
   </testsuites>
 
