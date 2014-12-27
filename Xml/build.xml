@@ -19,9 +19,19 @@
 		<mkdir dir="${basedir}/build/pdepend" />
 	</target>
 
+	<target name="qa" description="Lance les outils d'analyse">
+		<phingcall target="phpunit" />
+		<phingcall target="phpmd" />
+		<phingcall target="phpcpd" />
+		<phingcall target="phploc" />
+		<phingcall target="phpcs" />
+		<phingcall target="phpdoc" />
+		<phingcall target="phpcb" />
+		<phingcall target="pdepend" />
+	</target>
+
 	<target name="phpunit">
-		<exec logoutput="true" dir="${basedir}/${source}/Xml"
-			command="phpunit" escape="false" />
+	 <exec dir="${basedir}/Tests" executable="phpunit" failonerror="true" description="Run unit tests with PHPUnit" />
 	</target>
 	
 	<target name="phpmd">
