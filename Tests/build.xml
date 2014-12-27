@@ -1,11 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
  <project name="Calculatrice" default="build">
-     
+  <target name="clean">
+   <delete dir="${basedir}/svn/_build"/>
+   <delete dir="${basedir}/build"/>
+  </target>
+       
+  <target name="prepare">
+   <mkdir dir="${basedir}/svn/_build/logs"/>
+   <mkdir dir="${basedir}/build/logs"/>
+   <mkdir dir="${basedir}/build/docs"/>
+  </target>
+       
  <target name="phpunit">
   <exec logoutput="true" dir="../Tests" command="phpunit" escape="false" />
  </target>        
 
- <target name="build" depends="phpunit />
+ <target name="build" depends="clean,prepare,phpunit" />
 
 </project>
