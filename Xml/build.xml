@@ -31,7 +31,10 @@
 	</target>
 
 	<target name="phpunit">
-	 <exec dir="." executable="phpunit" failonerror="true" description="Run unit tests with PHPUnit" />
+	 <exec dir="." executable="phpunit" failonerror="true" description="Run unit tests with PHPUnit">
+      <arg value="--configuration"/>
+      <arg path="${basedir}/Xml/phpunit.xml"/>
+     </exec>
 	</target>
 	
 	<target name="phpmd">
