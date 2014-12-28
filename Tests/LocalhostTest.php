@@ -7,7 +7,6 @@
  */
 
 // Récupération de SeleniumTestCase.php
-require_once('PHPUnit/Extensions/SeleniumTestSuite.php');
 require_once('PHPUnit/Extensions/SeleniumTestCase.php');
 
 /**
